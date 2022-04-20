@@ -2,6 +2,21 @@
 <html>
     <head>
         <title>Weather Hub</title>
+
+        <script type = "text/JavaScript">
+            function copytext(text)
+            {
+                navigator.clipboard.writeText(text).then(function()
+                    {
+                        
+                    },
+                    function()
+                    {
+                        
+                    }
+                );
+            }
+        </script>
     </head>
     <body>
         <table width="100%" border="0">
@@ -28,68 +43,80 @@
             <tr valign="top">
                 <td bgcolor="#919191" width="25">
                     <p>National Weather Service</p>
-                    <a href="https://www.weather.gov/" target="_self">weather.gov</a>
+                    <button onclick="copytext('https://www.weather.gov/');">Copy link</button>
+                    <a href="https://www.weather.gov/" target="_self" id="copy1">weather.gov</a>
                 </td>
             </tr>
             <tr valign="top">
                 <td bgcolor="#919191" width="25">
                     <p>National Hurricane Center</p>
+                    <button onclick="copytext('https://www.nhc.noaa.gov/');">Copy link</button>
                     <a href="https://www.nhc.noaa.gov/" target="_self">nhc.noaa.gov</a>
                 </td>
             </tr>
             <tr valign="top">
                 <td bgcolor="#919191" width="25">
                     <p>Storm Prediction Center Outlooks</p>
+                    <button onclick="copytext('https://www.spc.noaa.gov/products/outlook/');">Copy link</button>
                     <a href="https://www.spc.noaa.gov/products/outlook/" target="_self">spc.noaa.gov/products/outlook</a>
                     <p>Storm Prediction Center NOAA</p>
+                    <button onclick="copytext('https://www.spc.noaa.gov/');">Copy link</button>
                     <a href="https://www.spc.noaa.gov/" target="_self">spc.noaa.gov</a>
                 </td>
             </tr>
             <tr valign="top">
                 <td bgcolor="#919191" width="25">
                     <p>National Weather Service Fire Weather</p>
+                    <button onclick="copytext('https://www.spc.noaa.gov/products/fire_wx/');">Copy link</button>
                     <a href="https://www.spc.noaa.gov/products/fire_wx/" target="_self">spc.noaa.gov/products/fire_wx</a>
                 </td>
             </tr>
             <tr valign="top">
                 <td bgcolor="#919191" width="25">
                     <p>National Weather Service Drought Monitor</p>
+                    <button onclick="copytext('https://www.drought.gov/');">Copy link</button>
                     <a href="https://www.drought.gov/" target="_self">drought.gov</a>
                 </td>
             </tr>
             <tr valign="top">
                 <td bgcolor="#919191" width="25">
                     <p>National Weather Service Space Weather</p>
+                    <button onclick="copytext('https://www.swpc.noaa.gov/products/alerts-watches-and-warnings');">Copy link</button>
                     <a href="https://www.swpc.noaa.gov/products/alerts-watches-and-warnings" target="_self">swpc.noaa.gov/products/alerts-watches-and-warnings</a>
                 </td>
             </tr>
             <tr valign="top">
                 <td bgcolor="#919191" width="25">
                     <p>National Weather Service Excessive Rainfall and Winter Weather Forecasts</p>
+                    <button onclick="copytext('https://www.wpc.ncep.noaa.gov/wwd/winter_wx.shtml');">Copy link</button>
                     <a href="https://www.wpc.ncep.noaa.gov/wwd/winter_wx.shtml" target="_self">wpc.ncep.noaa.gov/wwd/winter_wx</a>
                 </td>
             </tr>
             <tr valign="top">
                 <td bgcolor="#919191" width="25">
                     <p>National Weather Service Radar</p>
+                    <button onclick="copytext('https://radar.weather.gov/');">Copy link</button>
                     <a href="https://radar.weather.gov/" target="_self">radar.weather.gov</a>
                 </td>
             </tr>
             <tr valign="top">
                 <td bgcolor="#919191" width="25">
-                    <p>Weather Radio</p>
+                    <p>Weather USA NOAA Weather Radio</p>
+                    <button onclick="copytext('https://www.weatherusa.net/radio');">Copy link</button>
                     <a href="https://www.weatherusa.net/radio" target="_self">weatherusa.net/radio</a>
                 </td>
             </tr>
             <tr valign="top">
                 <td bgcolor="#919191" width="25">
                     <p>Live Storm Chasing</p>
+                    <button onclick="copytext('https://livestormchasing.com/map');">Copy link</button>
                     <a href="https://livestormchasing.com/map" target="_self">livestormchasing.com/map</a>
                 </td>
             </tr>
             <tr valign="top">
                 <td bgcolor="#919191" width="25">
                     <p>The Weather Channel</p>
+                    <button onclick="copytext('https://weather.com');">Copy link</button>
                     <a href="https://weather.com/" target="_self">weather.com</a>
                 </td>
             </tr>
@@ -109,24 +136,28 @@
             <tr valign="top">
                 <td bgcolor="#919191" width="25">
                     <p>Placefile Nation</p>
+                    <button onclick="copytext('https://placefilenation.com/');">Copy link</button>
                     <a href="https://placefilenation.com/" target="_self">placefilenation.com</a>
                 </td>
             </tr>
             <tr valign="top">
                 <td bgcolor="#919191" width="25">
                     <p>Henry Luker Placefiles</p>
+                    <button onclick="copytext('https://luker.org/resources/grlevelx/placefiles/');">Copy link</button>
                     <a href="https://luker.org/resources/grlevelx/placefiles/" target="_self">luker.org/resources/grlevelx/placefiles</a>
                 </td>
             </tr>
             <tr valign="top">
                 <td bgcolor="#919191" width="25">
                     <p>Almany Designs (Color Tables)</p>
+                    <button onclick="copytext('http://almanydesigns.com/grx/reflectivity/');">Copy link</button>
                     <a href="http://almanydesigns.com/grx/reflectivity/" target="_self">almanydesigns.com/grx/reflectivity</a>
                 </td>
             </tr>
             <tr valign="top">
                 <td bgcolor="#919191" width="25">
                     <p>NEXRAD Radar Data Archive</p>
+                    <button onclick="copytext('https://www.ncdc.noaa.gov/nexradinv/');">Copy link</button>
                     <a href="https://www.ncdc.noaa.gov/nexradinv/" target="_self">ncdc.noaa.gov/nexradinv/</a>
                 </td>
             </tr>
