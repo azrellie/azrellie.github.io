@@ -2,7 +2,9 @@
 <html>
     <head>
         <title>Weather Hub</title>
+        <script src="fengari-web.js" type="text/javascript"></script>
         <script src="main.js"></script>
+        <script src="main.lua" type="application/lua" async></script> <!--used for some upcoming shit or whatever-->
     </head>
     <body>
         <table width="100%" border="0">
@@ -19,7 +21,6 @@
                     <h1> </h1>
                 </td>
             </tr>
-
             <tr>
                 <td colspan="0" bgcolor="#1d58bf">
                     <h2>For weather:</h2>
@@ -112,7 +113,6 @@
                     <h1> </h1>
                 </td>
             </tr>
-
             <tr>
                 <td colspan="0" bgcolor="#1d58bf">
                     <h2>For GR2:</h2>
@@ -153,7 +153,6 @@
                     <h1> </h1>
                 </td>
             </tr>
-
             <tr>
                 <td colspan="0" bgcolor="#1d58bf">
                     <h2>Calculators:</h2>
@@ -187,7 +186,6 @@
                     <h1> </h1>
                 </td>
             </tr>
-
             <tr>
                 <td colspan="0" bgcolor="#1d58bf">
                     <h2>Informational resources:</h2>
@@ -332,7 +330,6 @@
                     <p>RH = 100 * (exp((17.625 * TD) / (243.04 + TD)) / exp((17.625 * T) / (243.04 + T)))</p>
                 </td>
             </tr>
-
             <tr valign="top">
                 <td bgcolor="#919191" width="25">
                     <p>Dew Point:</p>
@@ -344,7 +341,6 @@
                     <p>TD = 243.04 * (log(RH / 100) + ((17.625 * T) / (243.04 + T))) / (17.625 - log(RH / 100) - ((17.625 * TD) / (243.04 + TD)))</p>
                 </td>
             </tr>
-            
             <tr valign="top">
                 <td bgcolor="#919191" width="25">
                     <p>Air Temperature:</p>
@@ -356,7 +352,6 @@
                     <p>T = 243.04 * (((17.625 * TD) / (243.04 + TD)) - log(RH / 100)) / (17.625 + log(RH / 100) - ((17.625 * TD) / (243.04 + TD)))</p>
                 </td>
             </tr>
-
             <tr valign="top">
                 <td bgcolor="#919191" width="25">
                     <p>Heat Index:</p>
@@ -373,7 +368,6 @@
                     <p>ADJUSTMENT = ((RH - 85) / 10) * ((87 - T) / 5)</p>
                 </td>
             </tr>
-
             <tr valign="top">
                 <td bgcolor="#919191" width="25">
                     <p>Specific Humidity:</p>
@@ -386,19 +380,17 @@
                     <p>SH = (0.622 * a) / (P - (0.378 * a)) * 1000</p>
                 </td>
             </tr>
-
             <tr valign="top">
                 <td bgcolor="#919191" width="25">
                     <p>Absolute Humidity:</p>
                     <p>Where:</p>
-                    <p>TD = Air temperature in Celcius</p>
+                    <p>TD = Dew point in Celcius</p>
                     <p>RH = Relative humidity</p>
                     <p>AH = Absolute Humidity in g/m3</p>
                     <p>pow = Exponent power function</p>
                     <p>AH = 6.112 * pow(2.71828, ((17.67 * TD) / (TD + 243.5))) * RH * 2.1674 / (273.15 + TD)</p>
                 </td>
             </tr>
-
             <tr valign="top">
                 <td bgcolor="#919191" width="25">
                     <p>Cloud base:</p>
@@ -409,7 +401,6 @@
                     <p>CB = (T - TD) / 4.4 * 1000</p>
                 </td>
             </tr>
-            
             <tr valign="top">
                 <td bgcolor="#919191" width="25">
                     <p>Lapse Rate:</p>
@@ -427,7 +418,6 @@
                     <p>LP = d</p>
                 </td>
             </tr>
-
             <tr valign="top">
                 <td bgcolor="#919191" width="25">
                     <p>CAPE:</p>
@@ -444,7 +434,6 @@
                     <p>CAPE = 9.81 * ((VT - VTC) / VTC)</p>
                 </td>
             </tr>
-
             <tr valign="top">
                 <td bgcolor="#919191" width="25">
                     <p>Speed Shear:</p>
