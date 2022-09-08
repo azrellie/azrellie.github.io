@@ -405,16 +405,16 @@
                 <td bgcolor="#919191" width="25">
                     <p>Lapse Rate:</p>
                     <p>Where:</p>
-                    <p>TD = Dew point in Celcius</p>
+                    <p>T = Air temperature in Celcius</p>
                     <p>EL = Air temperature in Celcius at 12000 feet</p>
                     <p>a, b, c, d = Variablized equation for readability</p>
                     <p>exp = Exponent function</p>
                     <p>LP = Lapse rate in C/km</p>
                     <p>EL = AirTempAtElevation(T, 12000)</p>
                     <p>a = 2510 - 2.38 * EL</p>
-                    <p>b = (6.11 / 1012.34) * exp(0.622 * a / 0.287 / 273 / (1 * TD + 273) * TD)</p>
-                    <p>c = 0.622 * a * b / (0.287 * (1 * TD + 273) * (1 * TD + 273))</p>
-                    <p>d = 10 * (1 + 0.622 * a * b / (1 * 0.287 * (1 * TD + 273))) / (1 + (0.622 * a * c) / (1.005 * 1))</p>
+                    <p>b = (6.11 / 1012.34) * exp(0.622 * a / 0.287 / 273 / (1 * T + 273) * T)</p>
+                    <p>c = 0.622 * a * b / (0.287 * (1 * T + 273) * (1 * T + 273))</p>
+                    <p>d = 10 * (1 + 0.622 * a * b / (1 * 0.287 * (1 * T + 273))) / (1 + (0.622 * a * c) / (1.005 * 1))</p>
                     <p>LP = d</p>
                 </td>
             </tr>
