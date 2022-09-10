@@ -4,6 +4,9 @@
         <title>Weather Hub</title>
         <script src="fengari-web.js" type="text/javascript"></script>
         <script src="main.js"></script>
+        <link rel="stylesheet" href="highlight/styles/default.min.css">
+        <script src="highlight/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
         <script src="main.lua" type="application/lua" async></script> <!--used for some upcoming shit or whatever-->
     </head>
     <body>
@@ -328,6 +331,31 @@
                     <p>T = Air temperature in Celcius</p>
                     <p>exp = Exponent function</p>
                     <p>RH = 100 * (exp((17.625 * TD) / (243.04 + TD)) / exp((17.625 * T) / (243.04 + T)))</p>
+                    <h1>Code conversions:</h1>
+
+                    <h2>C++/C</h2>
+                    <pre><code class="language-cpp">
+// dew_point and air_temp in C
+double rh = Math::Floor(100 * (Math::Exp((17.625 * dew_point) / (243.04 + dew_point)) / Math::Exp((17.625 * air_temp) / (243.04 + air_temp))));
+</code></pre>
+
+                    <h2>C#</h2>
+                    <pre><code class="language-cs">
+// dew_point and air_temp in C
+double rh = Math.Floor(100 * (Math.Exp((17.625 * dew_point) / (243.04 + dew_point)) / Math.Exp((17.625 * air_temp) / (243.04 + air_temp))));
+</code></pre>
+
+                    <h2>Lua</h2>
+                    <pre><code class="language-lua">
+-- dew_point and air_temp in C
+local rh = math.floor(100 * (math.exp((17.625 * dew_point) / (243.04 + dew_point)) / math.exp((17.625 * air_temp) / (243.04 + air_temp))))
+</code></pre>
+
+                    <h2>Javascript</h2>
+                    <pre><code class="language-js">
+// dew_point and air_temp in C
+var rh = math.floor(100 * (Math.exp((17.625 * dew_point) / (243.04 + dew_point)) / Math.exp((17.625 * air_temp) / (243.04 + air_temp))));
+</code></pre>
                 </td>
             </tr>
             <tr valign="top">
@@ -339,6 +367,28 @@
                     <p>RH = Relative Humidity</p>
                     <p>log = Logarithmic function</p>
                     <p>TD = 243.04 * (log(RH / 100) + ((17.625 * T) / (243.04 + T))) / (17.625 - log(RH / 100) - ((17.625 * T) / (243.04 + T)))</p>
+                    <h1>Code conversions:</h1>
+                    <h2>C++/C</h2>
+                    <pre><code class="language-cpp">
+// air_temp and dew_point in C
+double dew_point = 243.04 * (Math::Log(rh / 100) + ((17.625 * air_temp) / (243.04 + air_temp))) / (17.625 - Math::Log(rh / 100) - ((17.625 * air_temp) / (243.04 + air_temp)));
+</code></pre>
+                    <h2>C#</h2>
+                    <pre><code class="language-cs">
+// air_temp and dew_point in C
+double dew_point = 243.04 * (Math.Log(rh / 100) + ((17.625 * air_temp) / (243.04 + air_temp))) / (17.625 - Math.Log(rh / 100) - ((17.625 * air_temp) / (243.04 + air_temp)));
+</code></pre>
+                    <h2>Lua</h2>
+                    <pre><code class="language-lua">
+-- air_temp and dew_point in C
+local dew_point = 243.04 * (math.log(rh / 100) + ((17.625 * air_temp) / (243.04 + air_temp))) / (17.625 - math.log(rh / 100) - ((17.625 * air_temp) / (243.04 + air_temp)))
+</code></pre>
+
+                    <h2>Javascript</h2>
+                    <pre><code class="language-js">
+// air_temp and dew_point in C
+var dew_point = 243.04 * (Math.log(rh / 100) + ((17.625 * air_temp) / (243.04 + air_temp))) / (17.625 - Math.log(rh / 100) - ((17.625 * air_temp) / (243.04 + air_temp)))
+</code></pre>
                 </td>
             </tr>
             <tr valign="top">
@@ -350,6 +400,31 @@
                     <p>RH = Relative Humidity</p>
                     <p>log = Logarithmic function</p>
                     <p>T = 243.04 * (((17.625 * TD) / (243.04 + TD)) - log(RH / 100)) / (17.625 + log(RH / 100) - ((17.625 * TD) / (243.04 + TD)))</p>
+                    <h1>Code conversions:</h1>
+
+                    <h2>C++/C</h2>
+                    <pre><code class="language-cpp">
+// dew_point and t in C
+double t = 243.04 * (((17.625 * dew_point) / (243.04 + dew_point)) - Math::Log(rh / 100)) / (17.625 + Math::Log(rh / 100) - ((17.625 * dew_point) / (243.04 + dew_point)));
+</code></pre>
+
+                    <h2>C#</h2> 
+                    <pre><code class="language-cs">
+// dew_point and t in C
+double t = 243.04 * (((17.625 * dew_point) / (243.04 + dew_point)) - Math.Log(rh / 100)) / (17.625 + Math.Log(rh / 100) - ((17.625 * dew_point) / (243.04 + dew_point)));
+</code></pre>
+
+                    <h2>Lua</h2>
+                    <pre><code class="language-cs">
+-- dew_point and t in C
+local t = 243.04 * (((17.625 * dew_point) / (243.04 + dew_point)) - math.log(rh / 100)) / (17.625 + math.log(rh / 100) - ((17.625 * dew_point) / (243.04 + dew_point)))
+</code></pre>
+
+                    <h2>Lua</h2>
+                    <pre><code class="language-cs">
+// dew_point and t in C
+var t = 243.04 * (((17.625 * dew_point) / (243.04 + dew_point)) - Math.log(rh / 100)) / (17.625 + Math.log(rh / 100) - ((17.625 * dew_point) / (243.04 + dew_point)))
+</code></pre>
                 </td>
             </tr>
             <tr valign="top">
@@ -359,13 +434,122 @@
                     <p>T = Air temperature in Fahrenheit</p>
                     <p>RH = Relative Humidity</p>
                     <p>HI = Heat index in Fahrenheit</p>
-                    <p>HI = -42.379 + 2.04901523*T + 10.14333127 * RH - 0.22475541 * T * RH - 0.00683783 * T * T - 0.05481717 * RH * RH + 0.00122874 * T * T * RH + 0.00085282 * T * RH * RH - 0.00000199 * T * T * RH * RH</p>
+                    <p>HI = -42.379 + 2.04901523 * T + 10.14333127 * RH - 0.22475541 * T * RH - 0.00683783 * T * T - 0.05481717 * RH * RH + 0.00122874 * T * T * RH + 0.00085282 * T * RH * RH - 0.00000199 * T * T * RH * RH</p>
                     
                     <p>If RH <13% and T > 80 and T < 112 then subtract from HI with this amount</13></p>
                     <p>ADJUSTMENT = (13 - RH) / 4 * sqrt((17 - ABS(T - 95)) / 17)</p>
 
                     <p>If RH >85% and T > 80 and T < 87 then add from HI with this amount</13></p>
                     <p>ADJUSTMENT = ((RH - 85) / 10) * ((87 - T) / 5)</p>
+
+                    <h1>Code conversions:</h1>
+
+                    <h2>C++/C</h2>
+                    <pre><code class="language-cpp">
+// heat index in fahrenheit
+// air_temp in F
+double six = 6.83783;
+double five = 5.481717;
+double one = 1.22874;
+double eight = 8.5282;
+double temp_p2 = Math::Pow(air_temp, 2);
+double rh_p2 = Math::Pow(rh, 2);
+double hi = -42.379 + (2.04901523 * air_temp) + (10.14333127 * rh) - (0.22475541 * air_temp * rh) - (six * Math::Pow(10, -3) * temp_p2) - (five * Math::Pow(10, -2) * rh_p2) + (one * Math::Pow(10, -3) * temp_p2 * rh) + (eight * Math::Pow(10, -4) * air_temp * rh_p2) - (1.99 * Math::Pow(10, -6) * temp_p2 * rh_p2);
+if (rh <= 13 && air_temp >= 80 && air_temp <= 112)
+{
+    double sqrt = Math::Sqrt(17 - Math::Abs(air_temp - 95) / 17);
+    double num = ((13 - rh) / 4);
+    double final_equation = num * sqrt;
+    hi -= final_equation;
+}
+else if (rh >= 85 && air_temp >= 80 && air_temp <= 87)
+{
+    hi += ((rh - 85) / 10) * ((87 - air_temp) / 5);
+}
+else if (air_temp < 80)
+{
+    hi = 0.5 * (air_temp + 61 + ((air_temp - 68) * 1.2) + (rh * 0.094));
+}
+</code></pre>
+
+                    <h2>C#</h2>
+                    <pre><code class="language-cs">
+// heat index in fahrenheit
+// air_temp in F
+double six = 6.83783;
+double five = 5.481717;
+double one = 1.22874;
+double eight = 8.5282;
+double temp_p2 = Math.Pow(air_temp, 2);
+double rh_p2 = Math.Pow(rh, 2);
+double hi = -42.379 + (2.04901523 * air_temp) + (10.14333127 * rh) - (0.22475541 * air_temp * rh) - (six * Math.Pow(10, -3) * temp_p2) - (five * Math.Pow(10, -2) * rh_p2) + (one * Math.Pow(10, -3) * temp_p2 * rh) + (eight * Math.Pow(10, -4) * air_temp * rh_p2) - (1.99 * Math.Pow(10, -6) * temp_p2 * rh_p2);
+if (rh <= 13 && air_temp >= 80 && air_temp <= 112)
+{
+    double sqrt = Math.Sqrt(17 - Math.Abs(air_temp - 95) / 17);
+    double num = ((13 - rh) / 4);
+    double final_equation = num * sqrt;
+    hi -= final_equation;
+}
+else if (rh >= 85 && air_temp >= 80 && air_temp <= 87)
+{
+    hi += ((rh - 85) / 10) * ((87 - air_temp) / 5);
+}
+else if (air_temp < 80)
+{
+    hi = 0.5 * (air_temp + 61 + ((air_temp - 68) * 1.2) + (rh * 0.094));
+}
+</code></pre>
+
+                    <h2>Lua</h2>
+                    <pre><code class="language-lua">
+-- heat index in fahrenheit
+-- air_temp in F
+local six = 6.83783
+local five = 5.481717
+local one = 1.22874
+local eight = 8.5282
+local temp_p2 = math.pow(air_temp, 2)
+local rh_p2 = math.pow(rh, 2)
+local hi = -42.379 + (2.04901523 * air_temp) + (10.14333127 * rh) - (0.22475541 * air_temp * rh) - (six * math.pow(10, -3) * temp_p2) - (five * math.pow(10, -2) * rh_p2) + (one * math.pow(10, -3) * temp_p2 * rh) + (eight * math.pow(10, -4) * air_temp * rh_p2) - (1.99 * math.pow(10, -6) * temp_p2 * rh_p2)
+if rh <= 13 and air_temp >= 80 and air_temp <= 112 then
+    local sqrt = math.sqrt(17 - math.abs(air_temp - 95) / 17)
+    local num = ((13 - rh) / 4)
+    local final_equation = num * sqrt
+    hi = hi - final_equation
+elseif rh >= 85 and air_temp >= 80 and air_temp <= 87 then
+    hi = hi + ((rh - 85) / 10) * ((87 - air_temp) / 5)
+elseif air_temp < 80 then
+    hi = 0.5 * (air_temp + 61 + ((air_temp - 68) * 1.2) + (rh * 0.094))
+end
+</code></pre>
+
+                    <h2>Javascript</h2>
+                    <pre><code class="language-cs">
+// heat index in fahrenheit
+// air_temp in F
+var six = 6.83783;
+var five = 5.481717;
+var one = 1.22874;
+var eight = 8.5282;
+var temp_p2 = Math.Pow(air_temp, 2);
+var rh_p2 = Math.Pow(rh, 2);
+var hi = -42.379 + (2.04901523 * air_temp) + (10.14333127 * rh) - (0.22475541 * air_temp * rh) - (six * Math.Pow(10, -3) * temp_p2) - (five * Math.Pow(10, -2) * rh_p2) + (one * Math.Pow(10, -3) * temp_p2 * rh) + (eight * Math.Pow(10, -4) * air_temp * rh_p2) - (1.99 * Math.Pow(10, -6) * temp_p2 * rh_p2);
+if (rh <= 13 && air_temp >= 80 && air_temp <= 112)
+{
+    var sqrt = Math.Sqrt(17 - Math.Abs(air_temp - 95) / 17);
+    var num = ((13 - rh) / 4);
+    var final_equation = num * sqrt;
+    hi -= final_equation;
+}
+else if (rh >= 85 && air_temp >= 80 && air_temp <= 87)
+{
+    hi += ((rh - 85) / 10) * ((87 - air_temp) / 5);
+}
+else if (air_temp < 80)
+{
+    hi = 0.5 * (air_temp + 61 + ((air_temp - 68) * 1.2) + (rh * 0.094));
+}
+</code></pre>
                 </td>
             </tr>
             <tr valign="top">
@@ -378,6 +562,39 @@
                     <p>SH = Specific Humidity in g/kg</p>
                     <p>a = 6.112 * exp((17.67 * TD) / (TD + 243.5))</p>
                     <p>SH = (0.622 * a) / (P - (0.378 * a)) * 1000</p>
+                    <h1>Code conversions:</h1>
+
+                    <h2>C++/C</h2>
+                    <pre><code class="language-cpp">
+// dew_point in C
+// air_pressure in hPa/mBar
+double sh_exp = 6.112 * Math::Exp((17.67 * dew_point) / (dew_point + 243.5));
+double sh = (0.622 * sh_exp) / (air_pressure - (0.378 * sh_exp)) * 1000;
+</code></pre>
+
+                    <h2>C#</h2>
+                    <pre><code class="language-cs">
+// dew_point in C
+// air_pressure in hPa/mBar
+double sh_exp = 6.112 * Math.Exp((17.67 * dew_point) / (dew_point + 243.5));
+double sh = (0.622 * sh_exp) / (air_pressure - (0.378 * sh_exp)) * 1000;
+</code></pre>
+
+                    <h2>Lua</h2>
+                    <pre><code class="language-lua">
+-- dew_point in C
+-- air_pressure in hPa/mBar
+local sh_exp = 6.112 * math.exp((17.67 * dew_point) / (dew_point + 243.5))
+local sh = (0.622 * sh_exp) / (air_pressure - (0.378 * sh_exp)) * 1000
+</code></pre>
+
+                    <h2>Javascript</h2>
+                    <pre><code class="language-js">
+// dew_point in C
+// air_pressure in hPa/mBar
+var sh_exp = 6.112 * Math.exp((17.67 * dew_point) / (dew_point + 243.5));
+var sh = (0.622 * sh_exp) / (air_pressure - (0.378 * sh_exp)) * 1000;
+</code></pre>
                 </td> 
             </tr>
             <tr valign="top">
@@ -389,6 +606,31 @@
                     <p>AH = Absolute Humidity in g/m3</p>
                     <p>pow = Exponent power function</p>
                     <p>AH = 6.112 * pow(2.71828, ((17.67 * TD) / (TD + 243.5))) * RH * 2.1674 / (273.15 + TD)</p>
+                    <h1>Code conversions:</h1>
+
+                    <h2>C++/C</h2>
+                    <pre><code class="language-cpp">
+// air_temp in C
+double ah = 6.112 * Math::Pow(2.71828, ((17.67 * air_temp) / (air_temp + 243.5))) * rh * 2.1674 / (273.15 + air_temp);
+</code></pre>
+
+                    <h2>C#</h2>
+                    <pre><code class="language-cs">
+// air_temp in C
+double ah = 6.112 * Math.Pow(2.71828, ((17.67 * air_temp) / (air_temp + 243.5))) * rh * 2.1674 / (273.15 + air_temp);
+</code></pre>
+
+                    <h2>Lua</h2>
+                    <pre><code class="language-lua">
+-- air_temp in C
+local ah = 6.112 * math.pow(2.71828, ((17.67 * air_temp) / (air_temp + 243.5))) * rh * 2.1674 / (273.15 + air_temp)
+</code></pre>
+
+                    <h2>Javascript</h2>
+                    <pre><code class="language-js">
+// air_temp in C
+var ah = 6.112 * Math.pow(2.71828, ((17.67 * air_temp) / (air_temp + 243.5))) * rh * 2.1674 / (273.15 + air_temp);
+</code></pre>
                 </td>
             </tr>
             <tr valign="top">
@@ -399,6 +641,28 @@
                     <p>TD = Dew point in Fahrenheit</p>
                     <p>CB = Cloud base in feet</p>
                     <p>CB = (T - TD) / 4.4 * 1000</p>
+                    <h1>Code conversions:</h1>
+                    
+                    <h2>C++/C/C#</h2>
+                    <pre><code class="language-cpp">
+// air_temp in F
+// dew_point in C
+double cb = (air_temp - dew_point) / 4.4 * 1000;
+</code></pre>
+
+                    <h2>Lua</h2>
+                    <pre><code class="language-lua">
+-- air_temp in F
+-- dew_point in C
+local cb = (air_temp - dew_point) / 4.4 * 1000
+</code></pre>
+
+                    <h2>Javascript</h2>
+                    <pre><code class="language-cpp">
+// air_temp in F
+// dew_point in C
+var cb = (air_temp - dew_point) / 4.4 * 1000;
+</code></pre>
                 </td>
             </tr>
             <tr valign="top">
@@ -416,6 +680,81 @@
                     <p>c = 0.622 * a * b / (0.287 * (1 * T + 273) * (1 * T + 273))</p>
                     <p>d = 10 * (1 + 0.622 * a * b / (1 * 0.287 * (1 * T + 273))) / (1 + (0.622 * a * c) / (1.005 * 1))</p>
                     <p>LP = d</p>
+                    <h1>Code conversions:</h1>
+
+                    <h2>C++/C</h2>
+                    <pre><code class="language-cpp">
+// air_temp in C
+double FtoC(double f)
+{
+    return (f - 32) * 5 / 9;
+}
+double AirTemperatureAtElevation(double air_temp_f, double elevation_feet) // returns in f
+{
+    return air_temp_f - (3.5 * elevation_feet) / 1000;
+}
+double elevation = 12000;
+double a = 2510 - 2.38 * FtoC(AirTemperatureAtElevation(air_temp, elevation));
+double b = (6.11 / 1012.34) * Math::Exp(0.622 * a / 0.287 / 273 / (1 * air_temp + 273) * air_temp);
+double c = 0.622 * a * b / (0.287 * (1 * air_temp + 273) * (1 * air_temp + 273));
+double d = 10 * (1 + 0.622 * a * b / (1 * 0.287 * (1 * air_temp + 273))) / (1 + (0.622 * a * c) / (1.005 * 1));
+double lp = Math::Floor(d * 10) / 10;
+</code></pre>
+
+                    <h2>C#</h2>
+                    <pre><code class="language-cs">
+// air_temp in C
+double FtoC(double f)
+{
+    return (f - 32) * 5 / 9;
+}
+double AirTemperatureAtElevation(double air_temp_f, double elevation_feet) // returns in f
+{
+    return air_temp_f - (3.5 * elevation_feet) / 1000;
+}
+double elevation = 12000;
+double a = 2510 - 2.38 * FtoC(AirTemperatureAtElevation(air_temp, elevation));
+double b = (6.11 / 1012.34) * Math.Exp(0.622 * a / 0.287 / 273 / (1 * air_temp + 273) * air_temp);
+double c = 0.622 * a * b / (0.287 * (1 * air_temp + 273) * (1 * air_temp + 273));
+double d = 10 * (1 + 0.622 * a * b / (1 * 0.287 * (1 * air_temp + 273))) / (1 + (0.622 * a * c) / (1.005 * 1));
+double lp = Math.Floor(d * 10) / 10;
+</code></pre>
+
+                    <h2>Lua</h2>
+                    <pre><code class="language-lua">
+-- air_temp in C
+function FtoC(f)
+    return (f - 32) * 5 / 9
+end
+function AirTemperatureAtElevation(air_temp_f, elevation_feet) -- returns in f
+    return air_temp_f - (3.5 * elevation_feet) / 1000
+end
+local elevation = 12000
+local a = 2510 - 2.38 * FtoC(AirTemperatureAtElevation(air_temp, elevation))
+local b = (6.11 / 1012.34) * math.exp(0.622 * a / 0.287 / 273 / (1 * air_temp + 273) * air_temp)
+local c = 0.622 * a * b / (0.287 * (1 * air_temp + 273) * (1 * air_temp + 273))
+local d = 10 * (1 + 0.622 * a * b / (1 * 0.287 * (1 * air_temp + 273))) / (1 + (0.622 * a * c) / (1.005 * 1))
+local lp = math.floor(d * 10) / 10
+</code></pre>
+
+                    <h2>Javascript</h2>
+                    <pre><code class="language-cs">
+// air_temp in C
+function FtoC(f)
+{
+    return (f - 32) * 5 / 9;
+}
+function AirTemperatureAtElevation(air_temp_f, elevation_feet) // returns in f
+{
+    return air_temp_f - (3.5 * elevation_feet) / 1000;
+}
+var elevation = 12000;
+var a = 2510 - 2.38 * FtoC(AirTemperatureAtElevation(air_temp, elevation));
+var b = (6.11 / 1012.34) * Math.Exp(0.622 * a / 0.287 / 273 / (1 * air_temp + 273) * air_temp);
+var c = 0.622 * a * b / (0.287 * (1 * air_temp + 273) * (1 * air_temp + 273));
+var d = 10 * (1 + 0.622 * a * b / (1 * 0.287 * (1 * air_temp + 273))) / (1 + (0.622 * a * c) / (1.005 * 1));
+var lp = Math.floor(d * 10) / 10;
+</code></pre>
                 </td>
             </tr>
             <tr valign="top">
@@ -432,6 +771,120 @@
                     <p>PT = AirTempAtElevation(VT, 12000)</p>
                     <p>VTC = KtoC(VT)</p>
                     <p>CAPE = 9.81 * ((VT - VTC) / VTC)</p>
+                    <h1>Code conversions:</h1>
+
+                    <h2>C++/C</h2>
+                    <pre><code class="language-cpp">
+// parcel_temp will be in F for this case
+// air_pressure in hPa/mBar
+// air_temp and dew_point in C
+// vt_pressure in K
+double KtoF(double k)
+{
+    return (k - 273.15) * 9 / 5 + 32;
+}
+double FtoK(double f)
+{
+    return (f - 32) * 5 / 9 + 273.15;
+}
+double KtoC(double k)
+{
+    return k - 273.15;
+}
+double AirTemperatureAtElevation(double air_temp_f, double elevation_feet) // returns in f
+{
+    return air_temp_f - (3.5 * elevation_feet) / 1000;
+}
+double vt_pressure = air_pressure;
+double virtual_temperature = (air_temp + 273.15) / (1 - 0.379 * (6.11 * Math::Pow(10, ((7.5 * dew_point) / (237.7 + dew_point))) / vt_pressure));
+double parcel_temp = AirTemperatureAtElevation(KtoF(virtual_temperature), 20000);
+double parcel_temp_k = FtoK(parcel_temp);
+double virtual_temperature_c = KtoC(virtual_temperature);
+double ca = 9.81 * ((parcel_temp_k - virtual_temperature_c) / virtual_temperature_c);
+</code></pre>
+
+                    <h2>C#</h2>
+                    <pre><code class="language-cs">
+// parcel_temp will be in F for this case
+// air_pressure in hPa/mBar
+// air_temp and dew_point in C
+// vt_pressure in K
+double KtoF(double k)
+{
+    return (k - 273.15) * 9 / 5 + 32;
+}
+double FtoK(double f)
+{
+    return (f - 32) * 5 / 9 + 273.15;
+}
+double KtoC(double k)
+{
+    return k - 273.15;
+}
+double AirTemperatureAtElevation(double air_temp_f, double elevation_feet) // returns in f
+{
+    return air_temp_f - (3.5 * elevation_feet) / 1000;
+}
+double vt_pressure = air_pressure;
+double virtual_temperature = (air_temp + 273.15) / (1 - 0.379 * (6.11 * Math.Pow(10, ((7.5 * dew_point) / (237.7 + dew_point))) / vt_pressure));
+double parcel_temp = AirTemperatureAtElevation(KtoF(virtual_temperature), 20000);
+double parcel_temp_k = FtoK(parcel_temp);
+double virtual_temperature_c = KtoC(virtual_temperature);
+double ca = 9.81 * ((parcel_temp_k - virtual_temperature_c) / virtual_temperature_c);
+</code></pre>
+
+                    <h2>Lua</h2>
+                    <pre><code class="language-lua">
+-- parcel_temp will be in F for this case
+-- air_pressure in hPa/mBar
+-- air_temp and dew_point in C
+-- vt_pressure in K
+function FtoK(f)
+    return (f - 32) * 5 / 9 + 273.15
+end
+function KtoC(k)
+    return k - 273.15
+end
+function AirTemperatureAtElevation(air_temp_f, elevation_feet) -- returns in f
+    return air_temp_f - (3.5 * elevation_feet) / 1000
+end
+local vt_pressure = air_pressure
+local virtual_temperature = (air_temp + 273.15) / (1 - 0.379 * (6.11 * math.pow(10, ((7.5 * dew_point) / (237.7 + dew_point))) / vt_pressure))
+local parcel_temp = AirTemperatureAtElevation(KtoF(virtual_temperature), 20000)
+local parcel_temp_k = FtoK(parcel_temp)
+local virtual_temperature_c = KtoC(virtual_temperature)
+local ca = 9.81 * ((parcel_temp_k - virtual_temperature_c) / virtual_temperature_c)
+</code></pre>
+
+                    <h2>Javascript</h2>
+                    <pre><code class="language-js">
+// parcel_temp will be in F for this case
+// air_pressure in hPa/mBar
+// air_temp and dew_point in C
+// vt_pressure in K
+function FtoK(f)
+{
+    return (f - 32) * 5 / 9 + 273.15;
+}
+function KtoC(k)
+{
+    return k - 273.15;
+}
+function KtoF(k)
+{
+    return (k - 273.15) * 9 / 5 + 32;
+}
+function AirTemperatureAtElevation(air_temp_f, elevation_feet) // returns in f
+{
+    return air_temp_f - (3.5 * elevation_feet) / 1000;
+}
+var vt_pressure = air_pressure;
+var virtual_temperature = (air_temp + 273.15) / (1 - 0.379 * (6.11 * Math.pow(10, ((7.5 * dew_point) / (237.7 + dew_point))) / vt_pressure));
+var parcel_temp = AirTemperatureAtElevation(KtoF(virtual_temperature), 20000);
+var parcel_temp_k = FtoK(parcel_temp);
+var virtual_temperature_c = KtoC(virtual_temperature);
+var ca = 9.81 * ((parcel_temp_k - virtual_temperature_c) / virtual_temperature_c);
+</code></pre>
                 </td>
             </tr>
             <tr valign="top">
@@ -441,6 +894,25 @@
                     <p>W = Surface winds in m/s</p>
                     <p>SP = Speed shear in m/s</p>
                     <p>SP = W / 3</p>
+                    <h1>Code conversions:</h1>
+
+                    <h2>C++/C/C#</h2>
+                    <pre><code class="language-cpp">
+// surface_winds and sp_shear in m/s
+double sp_shear = surface_winds / 3;
+</code></pre>
+
+                    <h2>Lua</h2>
+                    <pre><code class="language-lua">
+-- surface_winds and sp_shear in m/s
+local sp_shear = surface_winds / 3
+</code></pre>
+
+                    <h2>Javascript</h2>
+                    <pre><code class="language-js">
+// surface_winds and sp_shear in m/s
+var sp_shear = surface_winds / 3;
+</code></pre>
                 </td>
             </tr>
 
