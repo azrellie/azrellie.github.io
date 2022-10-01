@@ -356,6 +356,12 @@ local rh = math.floor(100 * (math.exp((17.625 * dew_point) / (243.04 + dew_point
 // dew_point and air_temp in C
 var rh = math.floor(100 * (Math.exp((17.625 * dew_point) / (243.04 + dew_point)) / Math.exp((17.625 * air_temp) / (243.04 + air_temp))));
 </code></pre>
+
+                    <h2>Python</h2>
+                    <pre><code class="language-python">
+                        -- dew_point and air_temp in C
+                        local rh = math.floor(100 * (math.exp((17.625 * dew_point) / (243.04 + dew_point)) / math.exp((17.625 * air_temp) / (243.04 + air_temp))))
+</code></pre>
                 </td>
             </tr>
             <tr valign="top">
@@ -389,6 +395,14 @@ local dew_point = 243.04 * (math.log(rh / 100) + ((17.625 * air_temp) / (243.04 
 // air_temp and dew_point in C
 var dew_point = 243.04 * (Math.log(rh / 100) + ((17.625 * air_temp) / (243.04 + air_temp))) / (17.625 - Math.log(rh / 100) - ((17.625 * air_temp) / (243.04 + air_temp)))
 </code></pre>
+
+                    <h2>Python</h2>
+                    <pre><code class="language-python">
+import math
+
+# air_temp and dew_point in C
+dew_point = 243.04 * (math.log(rh / 100) + ((17.625 * air_temp) / (243.04 + air_temp))) / (17.625 - math.log(rh / 100) - ((17.625 * air_temp) / (243.04 + air_temp)))
+</code></pre>
                 </td>
             </tr>
             <tr valign="top">
@@ -415,15 +429,23 @@ double t = 243.04 * (((17.625 * dew_point) / (243.04 + dew_point)) - Math.Log(rh
 </code></pre>
 
                     <h2>Lua</h2>
-                    <pre><code class="language-cs">
+                    <pre><code class="language-lua">
 -- dew_point and t in C
 local t = 243.04 * (((17.625 * dew_point) / (243.04 + dew_point)) - math.log(rh / 100)) / (17.625 + math.log(rh / 100) - ((17.625 * dew_point) / (243.04 + dew_point)))
 </code></pre>
 
-                    <h2>Lua</h2>
-                    <pre><code class="language-cs">
+                    <h2>Javascript</h2>
+                    <pre><code class="language-js">
 // dew_point and t in C
 var t = 243.04 * (((17.625 * dew_point) / (243.04 + dew_point)) - Math.log(rh / 100)) / (17.625 + Math.log(rh / 100) - ((17.625 * dew_point) / (243.04 + dew_point)))
+</code></pre>
+
+                    <h2>Python</h2>
+                    <pre><code class="language-python">
+import math
+
+# dew_point and t in C
+t = 243.04 * (((17.625 * dew_point) / (243.04 + dew_point)) - math.log(rh / 100)) / (17.625 + math.log(rh / 100) - ((17.625 * dew_point) / (243.04 + dew_point)))
 </code></pre>
                 </td>
             </tr>
@@ -523,8 +545,8 @@ elseif air_temp < 80 then
 end
 </code></pre>
 
-                    <h2>Javascript</h2>
-                    <pre><code class="language-cs">
+<h2>Javascript</h2>
+<pre><code class="language-cs">
 // heat index in fahrenheit
 // air_temp in F
 var six = 6.83783;
@@ -536,19 +558,43 @@ var rh_p2 = Math.Pow(rh, 2);
 var hi = -42.379 + (2.04901523 * air_temp) + (10.14333127 * rh) - (0.22475541 * air_temp * rh) - (six * Math.Pow(10, -3) * temp_p2) - (five * Math.Pow(10, -2) * rh_p2) + (one * Math.Pow(10, -3) * temp_p2 * rh) + (eight * Math.Pow(10, -4) * air_temp * rh_p2) - (1.99 * Math.Pow(10, -6) * temp_p2 * rh_p2);
 if (rh <= 13 && air_temp >= 80 && air_temp <= 112)
 {
-    var sqrt = Math.Sqrt(17 - Math.Abs(air_temp - 95) / 17);
-    var num = ((13 - rh) / 4);
-    var final_equation = num * sqrt;
-    hi -= final_equation;
+var sqrt = Math.Sqrt(17 - Math.Abs(air_temp - 95) / 17);
+var num = ((13 - rh) / 4);
+var final_equation = num * sqrt;
+hi -= final_equation;
 }
 else if (rh >= 85 && air_temp >= 80 && air_temp <= 87)
 {
-    hi += ((rh - 85) / 10) * ((87 - air_temp) / 5);
+hi += ((rh - 85) / 10) * ((87 - air_temp) / 5);
 }
 else if (air_temp < 80)
 {
-    hi = 0.5 * (air_temp + 61 + ((air_temp - 68) * 1.2) + (rh * 0.094));
+hi = 0.5 * (air_temp + 61 + ((air_temp - 68) * 1.2) + (rh * 0.094));
 }
+</code></pre>
+
+                    <h2>Python</h2>
+                    <pre><code class="language-python">
+import math
+
+# heat index in fahrenheit
+# air_temp in F
+six = 6.83783
+five = 5.481717
+one = 1.22874
+eight = 8.5282
+temp_p2 = math.pow(air_temp, 2)
+rh_p2 = math.pow(rh, 2)
+hi = -42.379 + (2.04901523 * air_temp) + (10.14333127 * rh) - (0.22475541 * air_temp * rh) - (six * math.pow(10, -3) * temp_p2) - (five * math.pow(10, -2) * rh_p2) + (one * math.pow(10, -3) * temp_p2 * rh) + (eight * math.pow(10, -4) * air_temp * rh_p2) - (1.99 * math.pow(10, -6) * temp_p2 * rh_p2)
+if rh <= 13 and air_temp >= 80 and air_temp <= 112:
+    sqrt = math.sqrt(17 - math.abs(air_temp - 95) / 17)
+    num = ((13 - rh) / 4)
+    final_equation = num * sqrt
+    hi = hi - final_equation
+elif rh >= 85 and air_temp >= 80 and air_temp <= 87:
+    hi = hi + ((rh - 85) / 10) * ((87 - air_temp) / 5)
+elif air_temp < 80:
+    hi = 0.5 * (air_temp + 61 + ((air_temp - 68) * 1.2) + (rh * 0.094))
 </code></pre>
                 </td>
             </tr>
@@ -595,6 +641,16 @@ local sh = (0.622 * sh_exp) / (air_pressure - (0.378 * sh_exp)) * 1000
 var sh_exp = 6.112 * Math.exp((17.67 * dew_point) / (dew_point + 243.5));
 var sh = (0.622 * sh_exp) / (air_pressure - (0.378 * sh_exp)) * 1000;
 </code></pre>
+
+                    <h2>Python</h2>
+                    <pre><code class="language-python">
+import math
+
+# dew_point in C
+# air_pressure in hPa/mBar
+sh_exp = 6.112 * math.exp((17.67 * dew_point) / (dew_point + 243.5))
+sh = (0.622 * sh_exp) / (air_pressure - (0.378 * sh_exp)) * 1000
+</code></pre>
                 </td> 
             </tr>
             <tr valign="top">
@@ -631,6 +687,14 @@ local ah = 6.112 * math.pow(2.71828, ((17.67 * air_temp) / (air_temp + 243.5))) 
 // air_temp in C
 var ah = 6.112 * Math.pow(2.71828, ((17.67 * air_temp) / (air_temp + 243.5))) * rh * 2.1674 / (273.15 + air_temp);
 </code></pre>
+
+                    <h2>Python</h2>
+                    <pre><code class="language-python">
+import math
+
+# air_temp in C
+ah = 6.112 * math.pow(2.71828, ((17.67 * air_temp) / (air_temp + 243.5))) * rh * 2.1674 / (273.15 + air_temp)
+</code></pre>
                 </td>
             </tr>
             <tr valign="top">
@@ -662,6 +726,15 @@ local cb = (air_temp - dew_point) / 4.4 * 1000
 // air_temp in F
 // dew_point in C
 var cb = (air_temp - dew_point) / 4.4 * 1000;
+</code></pre>
+
+                    <h2>Python</h2>
+                    <pre><code class="language-python">
+import math
+
+# air_temp in F
+# dew_point in C
+cb = (air_temp - dew_point) / 4.4 * 1000
 </code></pre>
                 </td>
             </tr>
@@ -754,6 +827,24 @@ var b = (6.11 / 1012.34) * Math.Exp(0.622 * a / 0.287 / 273 / (1 * air_temp + 27
 var c = 0.622 * a * b / (0.287 * (1 * air_temp + 273) * (1 * air_temp + 273));
 var d = 10 * (1 + 0.622 * a * b / (1 * 0.287 * (1 * air_temp + 273))) / (1 + (0.622 * a * c) / (1.005 * 1));
 var lp = Math.floor(d * 10) / 10;
+</code></pre>
+
+                    <h2>Python</h2>
+                    <pre><code class="language-python">
+import math
+
+# air_temp in C
+def FtoC(f):
+    return (f - 32) * 5 / 9
+def AirTemperatureAtElevation(air_temp_f, elevation_feet): # returns in f
+    return air_temp_f - (3.5 * elevation_feet) / 1000
+
+elevation = 12000
+a = 2510 - 2.38 * FtoC(AirTemperatureAtElevation(air_temp, elevation))
+b = (6.11 / 1012.34) * math.exp(0.622 * a / 0.287 / 273 / (1 * air_temp + 273) * air_temp)
+c = 0.622 * a * b / (0.287 * (1 * air_temp + 273) * (1 * air_temp + 273))
+d = 10 * (1 + 0.622 * a * b / (1 * 0.287 * (1 * air_temp + 273))) / (1 + (0.622 * a * c) / (1.005 * 1))
+lp = math.floor(d * 10) / 10
 </code></pre>
                 </td>
             </tr>
@@ -885,6 +976,28 @@ var parcel_temp_k = FtoK(parcel_temp);
 var virtual_temperature_c = KtoC(virtual_temperature);
 var ca = 9.81 * ((parcel_temp_k - virtual_temperature_c) / virtual_temperature_c);
 </code></pre>
+
+                        <h2>Python</h2>
+                        <pre><code class="language-python">
+import math
+
+# parcel_temp will be in F for this case
+# air_pressure in hPa/mBar
+# air_temp and dew_point in C
+# vt_pressure in K
+def FtoK(f):
+    return (f - 32) * 5 / 9 + 273.15   
+def KtoC(k):
+    return k - 273.15
+def AirTemperatureAtElevation(air_temp_f, elevation_feet): # returns in f
+    return air_temp_f - (3.5 * elevation_feet) / 1000
+vt_pressure = air_pressure
+virtual_temperature = (air_temp + 273.15) / (1 - 0.379 * (6.11 * math.pow(10, ((7.5 * dew_point) / (237.7 + dew_point))) / vt_pressure))
+parcel_temp = AirTemperatureAtElevation(KtoF(virtual_temperature), 20000)
+parcel_temp_k = FtoK(parcel_temp)
+virtual_temperature_c = KtoC(virtual_temperature)
+ca = 9.81 * ((parcel_temp_k - virtual_temperature_c) / virtual_temperature_c)
+</code></pre>
                 </td>
             </tr>
             <tr valign="top">
@@ -912,6 +1025,14 @@ local sp_shear = surface_winds / 3
                     <pre><code class="language-js">
 // surface_winds and sp_shear in m/s
 var sp_shear = surface_winds / 3;
+</code></pre>
+
+                    <h2>Python</h2>
+                    <pre><code class="language-python">
+import math
+
+# surface_winds and sp_shear in m/s
+sp_shear = surface_winds / 3
 </code></pre>
                 </td>
             </tr>
